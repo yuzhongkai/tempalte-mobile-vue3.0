@@ -1,0 +1,16 @@
+{
+  "name": "vue-server",
+  "version": "1.0.0",
+  "description": "vue interface admin",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yuzhongkai667@163.com",
+  "license": "ISC"
+}

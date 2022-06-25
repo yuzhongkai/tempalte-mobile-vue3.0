@@ -1,0 +1,60 @@
+//路由
+module.exports = {
+	init:function(app, db, projectName, bodyParser){
+		let statusCode = 200;
+		
+		/**
+		 * POST
+		 * 查询所有用户--yzk
+		 * @param {Object} req
+		 * @param {Object} res
+		 */ 
+		app.post(projectName + '/user/userList', function(req, res) {
+			db.query('SELECT * FROM sys_user', [],function(result,fields){
+				let resData = {"code":statusCode};
+				resData.rows = result;
+				resData.total = result.length;
+				res.json(resData)
+			});
+		});
+		
+		/**
+		 * POST
+		 * 根据用户登录信息获取菜单路由--yzk
+		 * 接收参数传参数
+		 */
+		app.post(projectName + '/user/menuRouters', bodyParser.json(), function(req, res) {
+			// 获取请求参数
+			let reqData = req.body;
+			db.query('SELECT * FROM sys_menu where menu_id !=""', [],function(result,fields){
+				let resData = {"code":statusCode};
+				resData.data = result;
+				res.json(resData)
+			});
+		});
+		
+		// 添加用户
+		app.get(projectName + '/user/add', function(req, res) {
+			db.query('SELECT title,id,add_time FROM sys_user', [],function(result,fields){
+				res.status(200),
+				res.json(result)
+			});
+		});
+		
+		// 删除用户
+		app.get(projectName + '/user/del', function(req, res) {
+			db.query('SELECT title,id,add_time FROM sys_user', [],function(result,fields){
+				res.status(200),
+				res.json(result)
+			});
+		});
+		
+		// 修改用户
+		app.get(projectName + '/user/update', function(req, res) {
+			db.query('SELECT title,id,add_time FROM sys_user', [],function(result,fields){
+				res.status(200),
+				res.json(result)
+			});
+		});
+	}
+}

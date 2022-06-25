@@ -1,0 +1,33 @@
+module.exports = {
+	init:function(app, db, projectName, bodyParser){
+		let resData = {"code":200};
+		// 查询所有用户
+		app.post(projectName + '/user/list', function(req, res) {
+			db.query('SELECT * FROM sys_user', [],function(result,fields){
+				resData.data = result;
+				res.json(resData)
+			});
+		});
+		// 添加用户
+		app.get(projectName + '/user/add', function(req, res) {
+			db.query('SELECT title,id,add_time FROM sys_user', [],function(result,fields){
+				res.status(200),
+				res.json(result)
+			});
+		});
+		// 删除用户
+		app.get(projectName + '/user/del', function(req, res) {
+			db.query('SELECT title,id,add_time FROM sys_user', [],function(result,fields){
+				res.status(200),
+				res.json(result)
+			});
+		});
+		// 修改用户
+		app.get(projectName + '/user/update', function(req, res) {
+			db.query('SELECT title,id,add_time FROM sys_user', [],function(result,fields){
+				res.status(200),
+				res.json(result)
+			});
+		});
+	}
+}
