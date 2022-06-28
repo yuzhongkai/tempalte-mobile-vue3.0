@@ -38,6 +38,14 @@ module.exports = {
   //px转rem
   css: {
     loaderOptions: {
+      // 全局引入变量和 mixin
+      sass: {
+        // additionalData & sass-loader版本10.1.1  prependData & sass-loader版本8.0.0
+        additionalData: `
+          @import "@/assets/scss/variable.scss";
+          @import "@/assets/scss/mixin.scss";
+        `
+      },
       postcss: {
         plugins: [
           require('autoprefixer')({
@@ -70,8 +78,6 @@ module.exports = {
         symbolId: 'icon-[name]'
       })
       .end()
-    // You are running the esm-bundler build of vue-i18n.
-    config.resolve.alias.set('vue-i18n', 'vue-i18n/dist/vue-i18n.cjs.js')
   },
   configureWebpack() {
     return {

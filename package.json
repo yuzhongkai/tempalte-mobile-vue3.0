@@ -1,5 +1,5 @@
 {
-  "name": "template3.0",
+  "name": "project-music3.0",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,6 +13,7 @@
     "core-js": "^3.6.5",
     "lib-flexible": "^0.3.2",
     "postcss-pxtorem": "5.1.1",
+    "sass-loader": "10.1.1",
     "vue": "3.2.8",
     "vue-router": "4.0.11",
     "vuex": "4.0.2"
@@ -39,7 +40,6 @@
     "lint-staged": "^13.0.2",
     "path-browserify": "^1.0.1",
     "sass": "^1.26.5",
-    "sass-loader": "^8.0.2",
     "svg-sprite-loader": "6.0.9"
   },
   "gitHooks": {

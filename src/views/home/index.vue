@@ -1,10 +1,11 @@
 <template>
   <div class="">
-    <p>是对方</p>
+    <headerbox></headerbox>
   </div>
 </template>
 <script setup>
 import { login } from '@/api/home'
+import Headerbox from '@/components/Header'
 const getUserDetail = async () => {
   await login()
 }
